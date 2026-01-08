@@ -20,7 +20,7 @@ The Ondia Blog Page Application aims to deploy blog application as a web applica
         no ipv6 CIDR block
         tenancy: default
         After creating VPC, some services are created automatically along with it. For example Route table and NACL table ---> !!! SHOW MAIN ROUTE TABLE !!! This is the main route table and we are gonna use this route table as public route table. We'll see this a couple of steps later.
-- After creating VPC, the first thing we need to do, select VPC, click `Actions` and `enable DNS hostnames` for the `aws-capstone-vpc`. If we do not enable this, a DNS host name won't be assigned to public servers under this VPC.
+- After creating VPC, the first thing we need to do, select VPC, click `Actions` `Edit VPC settings` and `enable DNS hostnames` for the `aws-capstone-vpc`. If we do not enable this, a DNS host name won't be assigned to public servers under this VPC.
 
   ## Subnets
 
@@ -64,7 +64,10 @@ The Ondia Blog Page Application aims to deploy blog application as a web applica
     - to do this go to the endpoint section on the left hand menu
     - select endpoint
     - click create endpoint
-    - Name tag      : aws-capstone-s3-gw-endpoint
+    - Name tag      : `aws-capstone-s3-gw-endpoint`
+    - Type (Select a category): AWS services
+    - Service Region: Check
+        Choose yor Region (us-east-1)
     - Since we will make all EC2s locate on private subnets, Select both private subnets. Select `com.amazonaws.us-east-1.s3` as service name
     - type          : Gateway
     - select `aws-capstone-vpc`
@@ -427,6 +430,7 @@ Instance properties:
 - Apply this these commands to ec2 `manually`
 
 ```bash
+
 sudo su
 apt-get update -y
 apt-get upgrade -y
@@ -742,7 +746,7 @@ What to monitor     : Endpoint
 Specify endpoint by : Domain Name
 Protocol            : HTTP
 Domain Name         : Write cloudfront domain name
-Port                : 443
+Port                : 80
 Path                : leave it blank
 Other stuff         : Keep them as are
 ```
