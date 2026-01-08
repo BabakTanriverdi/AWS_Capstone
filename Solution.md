@@ -43,6 +43,7 @@ The Ondia Blog Page Application aims to deploy blog application as a web applica
         - Create a private subnet named `aws-capstone-private-subnet-1a` under the vpc aws-capstone-VPC in AZ us-east-1a with 10.80.11.0/24
         - Create a public subnet named `aws-capstone-public-subnet-1b` under the vpc aws-capstone-VPC in AZ us-east-1b with 10.80.20.0/24
         - Create a private subnet named `aws-capstone-private-subnet-1b` under the vpc aws-capstone-VPC in AZ us-east-1b with 10.80.21.0/24
+        - Creat subnet
         - Show the default subnet associations on the main route table
     - Let's enable `auto-assign public IPv4` setting for public subnets. After this modification, whenever we create a machine on public subnets, Public IP address will be automatically assigned to it. Select public subnet-1A and 1B>>>actions>>>edit subnet settings>>>>enable auto-assign public IPv4
 
@@ -56,7 +57,7 @@ The Ondia Blog Page Application aims to deploy blog application as a web applica
     - Go to route tables on left hand side. We have already one route table as main route table. We will set it up as public route table and create a new one which is going to be private route table.
     - First create a route table and name it `aws-capstone-private-rt`.
     - Next, since we already have main route table which comes with VPC as default lets just name it `aws-capstone-public-rt` and add a route with destination 0.0.0.0/0 and target internet gateway `aws-capstone-igw`.
-    - Then, we need to associate our subnets with these route tables in terms of being public or private. Select the private route table, go to the subnet association subsection and add private subnets to this route table. Similarly, we will do it for public route table and public subnets.
+    - Then, we need to associate our subnets with these route tables in terms of being public or private. Select the private route table, go to the `subnet association` subsection and add private subnets to this route table. Similarly, we will do it for public route table and public subnets.
 
     ## Endpoint
 
