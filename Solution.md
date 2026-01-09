@@ -307,7 +307,7 @@ aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t3.micro 
 
 example:
 
-aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t3.micro --key-name mod_1_key --security-group-ids sg-07170607e9f4ad51d --subnet-id subnet-09f45ce749ba5ee1b --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=babak-aws-capstone-nat-instance}]' --disable-api-termination
+aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t3.micro --key-name mod_1_key --security-group-ids sg-0ed6099e670003ebe --subnet-id subnet-083b52c27a7f32b9a --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=babak-aws-capstone-nat-instance}]' --disable-api-termination
 ```
 
 - !!!!!! Warning!!!!!!select NAT instance and `enable stop` source/destination check
@@ -379,7 +379,7 @@ Save
 
 We will use this later, but it may take a while to activate so we will create it now.
 
-One of our requirements is to make our website connection in secure. It means, our web-site is going to use HTTPS protocol. To use this protocol, we need to get certification. Certification will encrypt data in transit between client and server. We can create our certificate for our DNS name with AWS certification Manager. Go to the certification manager console and click `request a certificate` button. Select `Request a public certificate`, then `request a certificate` ---> *.clarusway.us ---> DNS validation ---> No tag ---> Review ---> click confirm and request button. Then it takes a while to be activated.
+One of our requirements is to make our website connection in secure. It means, our web-site is going to use HTTPS protocol. To use this protocol, we need to get certification. Certification will encrypt data in transit between client and server. We can create our certificate for our DNS name with AWS certification Manager. Go to the certification manager console and click `request a certificate` button. Select `Request a public certificate`, then `request a certificate` ---> *.babak-devops.com ---> DNS validation ---> No tag ---> Review ---> click confirm and request button. Then it takes a while to be activated.
 
 ===> Make sure you click `Create DNS Records`
 
