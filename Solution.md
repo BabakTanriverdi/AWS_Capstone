@@ -479,6 +479,7 @@ Amazon machine image (AMI)          : Ubuntu 22.04
 Instance Type                       : t3.micro
 Key Pair                            : your key pair
 Subnet                              : Don't include
+Availability Zone                   : Don't include
 Security Groups                     : aws-capstone-ec2-sg
 Storage (Volumes)                   : keep it as is
 Resource tags                       : Key: Name   Value: aws-capstone-web-server
@@ -559,7 +560,7 @@ Click Add listener ---> Protocol HTTP ---> Port 80 ---> Default Action ---> Sele
 
 Secure Listener Settings        :
     Security policy: ELBSecurityPolicy-TLS13-1-2-Res-PQ-2025-09(Recommended)
-    Default ACM    : *.clarusway.us
+    Default ACM    : *.babak-devops.com
 
 ```
 
@@ -637,7 +638,7 @@ ssh-add xxxxxxxxxx.pem   (your local )
 ssh -A ec2-user@<Public IP or DNS name of NAT instance> (your local)
 ssh ubuntu@<Private IP of web server>  (in NAT instance)
 You are in the private EC2 instance
-``` -->
+``` 
 
 ## break
 
@@ -695,18 +696,22 @@ Other stuff                             : Keep them as are
 ```text
 Price Class                             : Use NA &Europe
 Alternate Domain Names                  : www.clarusway.us
-SSL Certificate                         : Custom SSL Certificate (example.com) ---> Select your certificate created before
+SSL Certificate                         : Custom SSL Certificate (example.com) 
+
+
+Select your certificate created before
 Other stuff                             : Keep them as is
 ```
 
 Click `Create distribution`
-
+Select your certificate created before
+Other stuff : Keep them as is
 ==> Now test:
-    - Check your LB DNS URL (with http and https)
+    - Check your LB DNS URL (with http and https)-->
 
 ## NEW Version Cloudfront
 
-Step 14: Create Cloudfront in front of ALB
+### Step 14: Create Cloudfront in front of ALB
 
 ```text
 Choose a plan : Pay as you go
@@ -724,8 +729,8 @@ Brows load balancer and select your capstone ALB and choose
 
 Customize origin settings
 Protocol: HTTPS only
-Cache settings
 
+Cache settings
 Customize cache settings : As default
 Use recommended cache settings tailored to serving Elastic Load Balancing content
 Next
