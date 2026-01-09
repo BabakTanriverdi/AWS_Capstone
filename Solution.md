@@ -201,10 +201,10 @@ Subnets            : Select 2 Private Subnets in these subnets (x.x.11.0, x.x.21
 - Now we can launch DB instance on RDS console. Go to the RDS console and click `create database` button
 
 ```text
-Choose a database creation method : Standard Create
+Choose a database creation method : Full configuration
 Engine Type     : MySQL
 Edition         : MySQL Community
-Version         : 8.0.33 (or latest)
+Version         : 8.0.43 (or latest)
 Templates       : Free Tier
 Settings        : 
     - DB instance identifier : aws-capstone-rds
@@ -257,7 +257,7 @@ create bucket
 - Click Create Bucket
 
 ```text
-Bucket Name : www.clarusway.us
+Bucket Name : www.babak-devops.com
 Region      : N.Virginia
 Object Ownership
     - ACLs enabled
@@ -269,7 +269,7 @@ Please keep other settings as are
 
 - create bucket
 
-- Selects created `www.clarusway.us` bucket ---> Properties ---> Static website hosting
+- Selects created `www.babak-devops.com` bucket ---> Properties ---> Static website hosting
 
 ```text
 Static website hosting : Enable
