@@ -771,13 +771,13 @@ Other stuff         : Keep them as are
 
 ```text
 
-Record name             : www.clarusway.us
+Record name             : www.babak-devops.com
 Record Type             : A - Routes traffic to an IPv4 address and some AWS resources
 TTL                     : 300
 
 First we'll create a primary record for cloudfront
 
-Failover records to add to clarusway.us ---> Define failover record
+Failover records to add to babak-devops.com ---> Define failover record
 
 Value/Route traffic to  : Alias to cloudfront distribution
                           - Select created cloudfront DNS
@@ -787,7 +787,7 @@ Record ID               : Cloudfront as Primary Record
 ----------------------------------------------------------------
 Second we'll create secondary record for S3
 
-Failover records to add to clarusway.us ---> Define failover record
+Failover records to add to babak-devops.com ---> Define failover record
 
 Value/Route traffic to  : Alias to S3 website endpoint
                           - Select Region
@@ -837,7 +837,7 @@ No tags
 Role Name           : aws-capstone-lambda-role
 Role description    : This role give a permission to lambda to reach S3 and DynamoDB
 ```
-
+Click `Creat role`
 then, go to the Lambda Console and click create function
 
 - Basic Information
@@ -852,7 +852,7 @@ Use an existing role    : aws-capstone-lambda-role
 
 Click `Create function`
 
-- Modify Lambda Function timeout to be 30 seconds
+- ### Modify Lambda Function timeout to be 30 seconds
 
 Go to configuration and EDIT Time out as 30 seconds
 
@@ -863,7 +863,7 @@ Go to configuration and EDIT Time out as 30 seconds
 - Go to the `aws-capstone-lambda-function` lambda Function
 - Click `Add trigger`
 - Select `S3` as Source
-- Select `awscapstones<name>blog` bucket
+- Select `awscapstonesbabakblog` bucket
 - Choose `All object create events`
 - Click the `I acknowledge` check box
 - Click `Add` to add the trigger
