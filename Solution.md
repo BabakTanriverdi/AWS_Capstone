@@ -505,7 +505,7 @@ Storage (Volumes)                   : keep it as is
 Resource tags                       : Key: Name   Value: aws-capstone-web-server
 Advance Details:
     - IAM instance profile          : aws-capstone-ec2-ssm-s3-full-access
-    - User Data
+    - User Data!!!! userdata.sh Copy/Paste your BashScript 
 ```
 
 ```bash
