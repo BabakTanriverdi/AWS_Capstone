@@ -163,7 +163,7 @@ MYSQL/Aurora(3306)  ----> aws-capstone-ec2-sg
 
 - Create a parameter for `database master password`  :
 
- `Name`         : /`<yourname>`/capstone/password
+ `Name`         : /babak/capstone/password
  `Description`  : ---  
  `Tier`         : Standard  
  `Type`         : SecureString   (So AWS encrypts sensitive data using KMS)  
@@ -171,7 +171,7 @@ MYSQL/Aurora(3306)  ----> aws-capstone-ec2-sg
 
 - Create parameter for `database username`  :
 
- `Name`         : /`<yourname>`/capstone/username
+ `Name`         : /babak/capstone/username
  `Description`  : ---  
  `Tier`         : Standard  
  `Type`         : SecureString   (So AWS encrypts sensitive data using KMS)  
@@ -179,11 +179,11 @@ MYSQL/Aurora(3306)  ----> aws-capstone-ec2-sg
 
 - Create parameter for `Github TOKEN`  :
 
- `Name`         : /`<yourname>`/capstone/token
+ `Name`         : /babak/capstone/token
  `Description`  : ---  
  `Tier`         : Standard  
  `Type`         : SecureString   (So AWS encrypts sensitive data using KMS)  
- `Value`        : xxxxxxxxxxxxxxxxxxxx  
+ `Value`        : xxxxxxxxxxxxxxxxxxxx  (GitHub Token)
 
 ### Step 5: Create RDS
 
@@ -208,8 +208,8 @@ Version         : 8.0.43 (or latest)
 Templates       : Free Tier
 Settings        : 
     - DB instance identifier : aws-capstone-rds
-    - Master username        : `admin` (must be same as the value of `/<yourname>/capstone/username`  )
-    - Password               : `Babak1234` (must be same as the value of `/<yourname>/capstone/password`  )
+    - Master username        : `admin` (must be same as the value of `/babak/capstone/username`  )
+    - Password               : `Babak1234` (must be same as the value of `/babak/capstone/password`  )
 DB Instance Class            : Burstable classes (includes t classes) ---> db.t3.micro
 Storage                      : 20 GB and enable autoscaling(up to 40GB)
 Connectivity:
@@ -241,7 +241,7 @@ One of them is going to be used for videos and pictures which will be uploaded o
 - Click Create Bucket
 
 ```text
-Bucket Name : awscapstones<name>blog
+Bucket Name : babak-awscapstones
 Region      : N.Virginia
 Object Ownership
     - ACLs enabled
