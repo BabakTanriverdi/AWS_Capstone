@@ -243,6 +243,7 @@ One of them is going to be used for videos and pictures which will be uploaded o
 ```text
 Bucket Name : babak-awscapstones
 Region      : N.Virginia
+Bucket type : General purpose
 Object Ownership
     - ACLs enabled
         - Bucket owner preferred
@@ -269,13 +270,32 @@ Please keep other settings as are
 
 - create bucket
 
-- Selects created `www.babak-devops.com` bucket ---> Properties ---> Static website hosting
+- Click created `www.babak-devops.com` bucket
+
+    - Permissions ---> Bucket policy (Edit)
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "PublicReadGetObject",
+            "Effect": "Allow",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::www.babak-devops.com/*"
+        }
+    ]
+}
+```
+    Save changes
+
+    - Properties ---> Static website hosting (Edit)
 
 ```text
 Static website hosting : Enable
 Hosting Type : Host a static website
 Index document : index.html
-save changes
+Save changes
 ```
 
 - Select Upload and upload `index.html and sorry.jpg` files in `S3_Static_Website Folder` ---> Access control list (ACL) ---> Everyone (public Access) allow Read for object
