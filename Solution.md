@@ -2,7 +2,7 @@
 
 ## Description
 
-The Ondia Blog Page Application aims to deploy blog application as a web application written Django Framework on AWS Cloud Infrastructure. This infrastructure has Application Load Balancer with Auto Scaling Group of Elastic Compute Cloud (EC2) Instances and Relational Database Service (RDS) in defined VPC. Also, The Cloudfront and Route 53 services are located in front of the architecture and manage the traffic in secure. User is able to upload pictures and videos on own blog page and these are kept on S3 Bucket. This architecture will be created by Firms DevOps Guy.
+The Blog Page Application aims to deploy blog application as a web application written Django Framework on AWS Cloud Infrastructure. This infrastructure has Application Load Balancer with Auto Scaling Group of Elastic Compute Cloud (EC2) Instances and Relational Database Service (RDS) in defined VPC. Also, The Cloudfront and Route 53 services are located in front of the architecture and manage the traffic in secure. User is able to upload pictures and videos on own blog page and these are kept on S3 Bucket. This architecture will be created by Firms DevOps Guy.
 
 ## Problem Solution Order
 
@@ -120,7 +120,7 @@ MYSQL/Aurora(3306)  ----> aws-capstone-ec2-sg
 
 ## Step 3: Prepare your Github repository
 
-- Create private project repository on your Github and clone it on your local. Copy all files and folders which are downloaded from ondia repo under this folder. Commit and push them on your private Git hup Repo.
+- Create a private project repository on GitHub and clone it to your local machine. Copy all files and folders obtained from the source repository into this project directory, then commit and push the changes to your private GitHub repository.
 
 - Frist Create `private` github repo
 - Go to `github.com`
@@ -146,7 +146,7 @@ MYSQL/Aurora(3306)  ----> aws-capstone-ec2-sg
 - Copy the git clone URL from github.com
 - At a terminal type `git clone <Clone URL>`
 - If you have authentication issues, you can enter your user name and use the token created above for your password OR try git clone https://<TOKEN>@<YOUR PRIVATE REPO URL>
-- Copy the files from the ondia repo to the capstone folder on your desktop
+- Copy the files from the Github repo to the capstone folder on your desktop
 - Go back to the terminal
 - Make sure you are in the `capstone` folder
 - Type the following commands
@@ -167,7 +167,7 @@ MYSQL/Aurora(3306)  ----> aws-capstone-ec2-sg
  `Description`  : ---  
  `Tier`         : Standard  
  `Type`         : SecureString   (So AWS encrypts sensitive data using KMS)  
- `Value`        : Ondia1234
+ `Value`        : Babak1234
 
 - Create parameter for `database username`  :
 
@@ -209,7 +209,7 @@ Templates       : Free Tier
 Settings        : 
     - DB instance identifier : aws-capstone-rds
     - Master username        : `admin` (must be same as the value of `/<yourname>/capstone/username`  )
-    - Password               : `Ondia1234` (must be same as the value of `/<yourname>/capstone/password`  )
+    - Password               : `Babak1234` (must be same as the value of `/<yourname>/capstone/password`  )
 DB Instance Class            : Burstable classes (includes t classes) ---> db.t3.micro
 Storage                      : 20 GB and enable autoscaling(up to 40GB)
 Connectivity:
@@ -222,7 +222,7 @@ Connectivity:
     Additional Configuration : Database port ---> `3306`
 Database authentication ---> Password authentication
 Additional Configuration:
-    - Initial Database Name  : `ondia` 
+    - Initial Database Name  : `Babak` 
     - Backup ---> Enable automatic backups
     - Backup retention period ---> 7 days
     - Select Backup Window ---> Select 03:00 (am) Duration 1 hour
@@ -303,7 +303,7 @@ select NAT Instance `ami-0780b09c119334593`
 - Click on `Launch Instance`
 
 ```bash
-aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t3.micro --key-name XXX --security-group-ids sg-XXX --subnet-id subnet-XXX --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=betul-NAT-instance}]'
+aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t3.micro --key-name XXX --security-group-ids sg-XXX --subnet-id subnet-XXX --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=babak-NAT-instance}]'
 
 example:
 
@@ -354,14 +354,14 @@ Save
 
 ## Break
 
-## Step 8: Write RDS database endpoint and S3 Bucket name in settings file given by ondia Fullstack Developer team and push your application into your own public repo on Github
+## Step 8: Write RDS database endpoint and S3 Bucket name in settings file given by Fullstack Developer team and push your application into your own public repo on Github
 
 - Examine the existing settings.py file . We need to change database configurations and S3 bucket information. But since it is not secure to hardcode some critical data in side the code we use SSM parameters.So use the new "settings.py" file located in `solution folder` which contains boto3 function to retrieve database parameters.
 
 - Movie and picture files are kept on S3 bucket named `awscapstones<name>blog` as object. You should create an S3 bucket and write name of it on `/src/cblog/settings.py` file as `AWS_STORAGE_BUCKET_NAME` variable. In addition, you must assign region of S3 as `AWS_S3_REGION_NAME` variable
 
 - As for database; Users credentials and blog contents are going to be kept on RDS database. To connect EC2 to RDS, following variables must be assigned on `/src/cblog/settings.py` file after you create RDS;
-    a. Database name - ondia
+    a. Database name - Babak
     b. Database endpoint - "HOST" variables
     c. Port - 3306
     d. User -  >>>>> `from parameter store`
@@ -695,7 +695,7 @@ Other stuff                             : Keep them as are
 
 ```text
 Price Class                             : Use NA &Europe
-Alternate Domain Names                  : www.clarusway.us
+Alternate Domain Names                  : www.babak-devops.com
 SSL Certificate                         : Custom SSL Certificate (example.com) 
 
 
@@ -759,7 +759,7 @@ Other stuff         : Keep them as are
 
 - Click Hosted zones on the left hand menu
 
-- click your Hosted zone        : clarusway.us
+- click your Hosted zone        : babak-devops.com
 
 - Create Failover scenario
 
@@ -929,4 +929,4 @@ Clean-up
 21. GitHub tokens
 22. SSM parameters
 
-Discription: The Ondia Blog Page Application is a Django-based web application deployed on AWS. It uses an Application Load Balancer with an Auto Scaling EC2 group, RDS within a VPC, and S3 for storing user-uploaded images and videos. CloudFront and Route 53 manage and secure incoming traffic.
+Description: The Blog Page Application is a Django-based web application deployed on AWS. It uses an Application Load Balancer with an Auto Scaling EC2 group, RDS within a VPC, and S3 for storing user-uploaded images and videos. CloudFront and Route 53 manage and secure incoming traffic.
