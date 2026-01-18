@@ -327,7 +327,7 @@ aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t3.micro 
 
 example:
 
-aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t3.micro --key-name mod_1_key --security-group-ids sg-04289b84caf5f4e25 --subnet-id subnet-09775c02103b80b1e --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=babak-aws-capstone-nat-instance}]' --disable-api-termination
+aws ec2 run-instances --image-id ami-0aa210fd2121a98b7 --instance-type t3.micro --key-name mod_1_key --security-group-ids sg-0d25fa0443a001501 --subnet-id subnet-0f9db73bf18f95e7a --tag-specifications 'ResourceType=instance,Tags=[{Key=Name,Value=babak-aws-capstone-nat-instance}]' --disable-api-termination
 ```
 
 - !!!!!! Warning!!!!!!select NAT instance and `enable stop` source/destination check
