@@ -378,7 +378,7 @@ Save
 
 - Examine the existing settings.py file . We need to change database configurations and S3 bucket information. But since it is not secure to hardcode some critical data in side the code we use SSM parameters.So use the new "settings.py" file located in `solution folder` which contains boto3 function to retrieve database parameters.
 
-- Movie and picture files are kept on S3 bucket named `awscapstones<name>blog` as object. You should create an S3 bucket and write name of it on `/src/cblog/settings.py` file as `AWS_STORAGE_BUCKET_NAME` variable. In addition, you must assign region of S3 as `AWS_S3_REGION_NAME` variable
+- Movie and picture files are kept on S3 bucket named `babak-awscapstones` as object. You should create an S3 bucket and write name of it on `/src/cblog/settings.py` file as `AWS_STORAGE_BUCKET_NAME` variable. In addition, you must assign region of S3 as `AWS_S3_REGION_NAME` variable
 
 - As for database; Users credentials and blog contents are going to be kept on RDS database. To connect EC2 to RDS, following variables must be assigned on `/src/cblog/settings.py` file after you create RDS;
     a. Database name - Babak
@@ -433,14 +433,18 @@ Instance properties:
 - Name: aws-capstone-test-instance
 - Ubuntu 22.04
 - Key Pair: your key
+- VPC: aws-capstone-vpc
 - Subnet: aws-capstone-public-1a !!!!!!!!!!!!! (PUBLIC SUBNET)
 - Security Group
+    Select existing security group:
   - aws-capstone-ec2-sg
   - aws-capstone-alb-sg
   - aws-capstone-nat-sg
 - Advanced details:
   - IAM Instance Profile:
   - aws-capstone-ec2-ssm-s3-full-access
+
+  Now, Launch instance
 
 - !!!!!!!!user data : 4 things must be changed!!!!!!!!!
 
@@ -453,11 +457,11 @@ Instance properties:
 ```bash
 
 sudo su
-apt-get update -y
-apt-get upgrade -y
-apt-get install git -y
+apt update -y
+apt upgrade -y
+apt install git -y
 apt install unzip
-apt-get install python3 -y
+apt install python3 -y
 apt install python3-pip -y
 pip3 install boto3
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
@@ -469,7 +473,7 @@ TOKEN=$(aws --region=us-east-1 ssm get-parameter --name /babak/capstone/token --
 git clone https://$TOKEN@github.com/BabakTanriverdi/AWS_Capstone
 #cd /home/ubuntu/aws-capstone-project
 cd /home/ubuntu/AWS_Capstone
-apt-get install python3.10-dev default-libmysqlclient-dev -y
+apt install python3.10-dev default-libmysqlclient-dev -y
 pip3 install -r requirements.txt
 #cd /home/ubuntu/aws-capstone-project/src
 cd /home/ubuntu/AWS_Capstone/src
