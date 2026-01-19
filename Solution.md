@@ -636,7 +636,7 @@ Configure advanced options
 - Load balancing                                : Attach to an existing load balancer
 - Choose from your load balancer target groups  : awscapstoneTargetGroup
 - Health Checks
-    - Health Check Type             : ELB
+    - Health Check Type             : ELB (Recommended)
     - Health check grace period     : 300
 ```
 
@@ -894,7 +894,7 @@ Go to configuration and EDIT Time out as 30 seconds
 - Go to the `aws-capstone-lambda-function` lambda Function
 - Click `Add trigger`
 - Select `S3` as Source
-- Select `awscapstonesbabakblog` bucket
+- Select `babak-awscapstones` bucket
 - Choose `All object create events`
 - Click the `I acknowledge` check box
 - Click `Add` to add the trigger
